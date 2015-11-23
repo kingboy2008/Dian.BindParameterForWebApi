@@ -20,7 +20,7 @@ Example:
 	{ param1: {...}, param2: {...}, param3: "..." }
     
 	or an encoded query string:
-	param1=...&amp;param2=...&amp;param3=...
+	param1=...&param2=...&param3=...
     
 	To use this attribute, Call this method in WebApiConfig.cs in Register :
 	config.ParameterBindingRules.Insert(0, MultiParameterBinding.CreateBindingForMarkedParameters);
@@ -60,7 +60,7 @@ API接口有多个参数时，自动绑定接口参数，并能将路由中的�
 	WEB API代码示例如下：
     [MultiComplexParameter]
     [Route("api/{Id}")]
-    public IHttpActionResult UrlMultiComplex(UserVm vm1,UserVm vm2)
+    public IHttpActionResult UrlMultiComplex(int id, UserVm vm1, UserVm vm2)
     {
         return Ok();
     }
