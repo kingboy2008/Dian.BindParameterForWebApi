@@ -2,12 +2,12 @@
 <package >
   <metadata>
     <id>Dian.BindParameterForWebApi</id>
-    <version>1.0.0.1</version>
+    <version>1.0.0.2</version>
     <title>Dian.BindParameterForWebApi</title>
     <authors>HaungShengnan</authors>
     <owners>HaungShengnan</owners>
     <licenseUrl>http://www.opensource.org/licenses/MIT</licenseUrl>
-    <projectUrl>https://github.com/mybbcat/pinyin4net</projectUrl>
+    <projectUrl>https://github.com/mybbcat/Dian.BindParameterForWebApi</projectUrl>
     <iconUrl>https://gravatar.com/images/grav-logo-2x.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>在WEB API中，支持绑定多个参数实体类。并且支持将路由中的值自动绑定到同名的参数中。</description>

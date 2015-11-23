@@ -4,7 +4,7 @@ namespace Dian.BindParameterForWebApi.Attribute
 {
     /// <summary>
     /// 以下场景可以使用本属性：
-    /// 当API接口只有一个参数是实体类时，并需将路由中的参数值绑定到Action参数实体类中时。
+    /// 当API接口只有一个参数是实体类时，并将路由中的参数值绑定到Action参数实体类中时。
     /// 只支持POST/PUT方式。
     /// </summary>
     /// <remarks>

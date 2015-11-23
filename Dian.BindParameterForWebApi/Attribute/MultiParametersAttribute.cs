@@ -10,7 +10,7 @@ namespace Dian.BindParameterForWebApi.Attribute
 	[AttributeUsage(AttributeTargets.Method, AllowMultiple = false, Inherited = false)]
 	public sealed class MultiParametersAttribute : System.Attribute
 	{
-
+        
 		/// <summary>
 		/// Specifies whether to support multiple POST parameters. This is true by default.
 		/// </summary>
