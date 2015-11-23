@@ -2,8 +2,8 @@
 <package >
   <metadata>
     <id>Dian.BindParameterForWebApi</id>
-    <version>1.0.0.0</version>
-    <title>BindParameterForWebApi</title>
+    <version>1.0.0.1</version>
+    <title>Dian.BindParameterForWebApi</title>
     <authors>HaungShengnan</authors>
     <owners>HaungShengnan</owners>
     <licenseUrl>http://www.opensource.org/licenses/MIT</licenseUrl>
