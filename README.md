@@ -8,7 +8,7 @@ Allows API methods to accept multiple parameters via a POST operation. If a meth
 a single object with a property for each parameter. Both JSON and standard query string posting is supported. The parameters can be of any type.
 The default behavior of .NET Web API is to allow just 1 parameter via a POST operation.
 Example:
-```sh
+```c#
     Given this web API method:
     [MultiParameters]
     public string MyMethod(CustomObject param1, CustomObject param2, string param3) 
@@ -29,7 +29,7 @@ Example:
 ### ComplexSingleParameterAttribute
 当API接口只有一个参数时，自动绑定接口参数，能够将路由中的参数值绑定到同名接口参数。
 仅限POST/PUT。
-```sh
+```c#
     WEB API代码示例如下：
     [SingleComplexParameter]
     [Route("api/{Id}")]
@@ -56,7 +56,7 @@ Example:
 ### ComplexMultiParametersAttribute
 API接口有多个参数时，自动绑定接口参数，并能将路由中的参数值绑定到同名接口参数。
 仅限POST/PUT。
-```sh
+```c#
 	WEB API代码示例如下：
     [MultiComplexParameter]
     [Route("api/{Id}")]
