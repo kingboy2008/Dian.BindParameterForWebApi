@@ -3,7 +3,7 @@
 ASP.NET WEB API中，支持POST与PUT接口自动绑定多个参数实体类。
 支持从路由读取参数，自动绑定至同名API接口参数。
 
-### MultiParametersAttribute    
+#### MultiParametersAttribute    
 Allows API methods to accept multiple parameters via a POST operation. If a method is marked。
 a single object with a property for each parameter. Both JSON and standard query string posting is supported. The parameters can be of any type.
 The default behavior of .NET Web API is to allow just 1 parameter via a POST operation.
@@ -26,7 +26,7 @@ To use this attribute, Call this method in WebApiConfig.cs in Register :
 config.ParameterBindingRules.Insert(0, MultiParameterBinding.CreateBindingForMarkedParameters);
 ```
 
-### ComplexSingleParameterAttribute
+#### ComplexSingleParameterAttribute
 当API接口只有一个参数时，自动绑定接口参数，能够将路由中的参数值绑定到同名接口参数。
 仅限POST/PUT。
 ```c#
@@ -53,7 +53,7 @@ $.ajax({
 使用该属性, 请在WebApiConfig.cs的Register方法中添加这一行代码:
 config.ParameterBindingRules.Insert(0, ComplexSingleParameterBinding.CreateBindingForMarkedParameters);
 ```	
-### ComplexMultiParametersAttribute
+#### ComplexMultiParametersAttribute
 API接口有多个参数时，自动绑定接口参数，并能将路由中的参数值绑定到同名接口参数。
 仅限POST/PUT。
 ```c#
@@ -80,3 +80,19 @@ $.ajax({
 使用该属性, 请在WebApiConfig.cs的Register方法中添加这一行代码:
 config.ParameterBindingRules.Insert(0, ComplexMultiParameterBinding.CreateBindingForMarkedParameters);
 ```
+
+Nuget
+---------------------------------------------
+
+Plesae see [https://www.nuget.org/packages/Dian.BindParameterForWebApi](https://www.nuget.org/packages/Dian.BindParameterForWebApi/)
+
+Bug tracker
+---------------------------------------------
+
+Have a bug? Please create an issue here on GitHub!  
+[https://github.com/mybbcat/Dian.BindParameterForWebApi/issues](https://github.com/mybbcat/Dian.BindParameterForWebApi/issues)
+
+Authors
+---------------------------------------------
+
+*mybbcat@gmail.com*
