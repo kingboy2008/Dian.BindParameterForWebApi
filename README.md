@@ -1,12 +1,12 @@
 # Dian.BindParameterForWebApi
 
-ASP.NET WEB API中，支持POST与PUT接口自动绑定多个参数实体类。
+ASP.NET WEB API中，支持POST/PUT/DELETE接口自动绑定多个参数实体类。
 支持从路由读取参数，自动绑定至同名API接口参数。
 
 ### MultiParametersAttribute    
 Allows API methods to accept multiple parameters via a POST operation. If a method is marked。
 a single object with a property for each parameter. Both JSON and standard query string posting is supported. The parameters can be of any type.
-The default behavior of .NET Web API is to allow just 1 parameter via a POST operation.
+The default behavior of .NET Web API is to allow just 1 parameter via a POST/PUT/DELETE operation.
 Example:
 ```sh
     Given this web API method:
@@ -28,7 +28,7 @@ Example:
 
 ### ComplexSingleParameterAttribute
 当API接口只有一个参数时，自动绑定接口参数，能够将路由中的参数值绑定到同名接口参数。
-仅限POST/PUT。
+仅限POST/PUT/DELETE。
 ```sh
     WEB API代码示例如下：
     [SingleComplexParameter]
@@ -55,7 +55,7 @@ Example:
 ```	
 ### ComplexMultiParametersAttribute
 API接口有多个参数时，自动绑定接口参数，并能将路由中的参数值绑定到同名接口参数。
-仅限POST/PUT。
+仅限POST/PUT/DELETE。
 ```sh
 	WEB API代码示例如下：
     [MultiComplexParameter]

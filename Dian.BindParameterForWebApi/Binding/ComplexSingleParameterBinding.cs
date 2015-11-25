@@ -111,7 +111,7 @@ namespace Dian.BindParameterForWebApi.Binding
 
 			// Only apply this binder on POST and PUT operations
 			Collection<HttpMethod> supportedMethods = descriptor.ActionDescriptor.SupportedHttpMethods;
-			if (supportedMethods.Contains(HttpMethod.Post) || supportedMethods.Contains(HttpMethod.Put))
+			if (supportedMethods.Contains(HttpMethod.Post) || supportedMethods.Contains(HttpMethod.Put) || supportedMethods.Contains(HttpMethod.Delete))
 				return new ComplexSingleParameterBinding(descriptor);
             
 			return null;
