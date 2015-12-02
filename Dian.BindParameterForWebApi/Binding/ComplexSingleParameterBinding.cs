@@ -29,7 +29,7 @@ namespace Dian.BindParameterForWebApi.Binding
 		public override Task ExecuteBindingAsync(ModelMetadataProvider metadataProvider, HttpActionContext actionContext, CancellationToken cancellationToken)
 		{
             // read request body (query string or JSON)
-            var parameters = ParseParametersFromBody(actionContext.Request);
+            var parameters = ParseParametersFromBody(actionContext.Request, actionContext);
 		    if (parameters != null)
 		    {
                 // 从路由中获取参数及值，全部添加进入BODY中取得的参数列表中
@@ -75,7 +75,7 @@ namespace Dian.BindParameterForWebApi.Binding
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
-        private Dictionary<string,object> ParseParametersFromBody(HttpRequestMessage request)
+        private Dictionary<string,object> ParseParametersFromBody(HttpRequestMessage request , HttpActionContext actionContext)
 		{
             object result = null;
             MediaTypeHeaderValue contentType = request.Content.Headers.ContentType;
@@ -85,10 +85,11 @@ namespace Dian.BindParameterForWebApi.Binding
                 {
                     case "application/json":
                         string content = request.Content.ReadAsStringAsync().Result;
-                        var values = JsonConvert.DeserializeObject<Dictionary<string, object>>(content);
+                        var jsonSerializerSettings = actionContext.ControllerContext.Configuration.Formatters.JsonFormatter.SerializerSettings;
+                        var values = JsonConvert.DeserializeObject<Dictionary<string, object>>(content, jsonSerializerSettings);
                         result = values.Aggregate(new Dictionary<string,object>(), (seed, current) =>
                         {
-                            seed.Add(current.Key, current.Value == null ? "" : current.Value.ToString());
+                            seed.Add(current.Key, current.Value ?? "");
                             return seed;
                         });
                         break;
