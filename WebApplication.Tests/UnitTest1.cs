@@ -1,34 +1,48 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Net;
 using System.Web.Http;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Dian.NTest.WebApi;
+using NUnit.Framework;
 using WebApplication.Models;
 
 namespace WebApplication.Tests
 {
-    [TestClass]
-    public class UnitTest1 : BaseWebApiUnitTest
+    [TestFixture]
+    public class UnitTest1
     {
+        private Dian.NTest.WebApi.TestTool _et;
 
-        protected override void Target(HttpConfiguration config)
+        [SetUp]
+        public void Setup()
+        {
+            _et = new TestTool();
+            _et.InvokeEvent += Target;
+        }
+
+        private void Target(HttpConfiguration config)
         {
             WebApiConfig.Register(config);
         }
 
-        [TestMethod]
+        [TearDown]
+        public void TearDown()
+        {
+            _et = null;
+        }
+
+        [Test]
         public void UrlComplexListTest()
         {
             var acc = new List<ulong> {222, 11};
-            var response = InvokePostRequest("Url/Complex/List/1004", new UserAuthListVm() { Account = acc });
+            var response = _et.InvokePostRequest("Url/Complex/List/1004", new UserAuthListVm {Account = acc});
             Assert.AreEqual(HttpStatusCode.OK, response.StatusCode);
         }
 
-        [TestMethod]
+        [Test]
         public void UrlComplexTest()
         {
-            var acc = new List<ulong> { 222, 11 };
-            var response = InvokePostRequest("Url/Complex/1004", new UserAuthVm() { Account = "ddd" });
+            var acc = new List<ulong> {222, 11};
+            var response = _et.InvokePostRequest("Url/Complex/1004", new UserAuthVm {Account = "ddd"});
             Assert.AreEqual(HttpStatusCode.OK, response.StatusCode);
         }
     }
