@@ -1,2 +1,5 @@
 language: csharp
 solution: BindParameterForWebApi.sln
+script:
+  - xbuild /p:Configuration=Release BindParameterForWebApi.sln
+  - xbuild /p:TargetFrameworkVersion="v4.5"
